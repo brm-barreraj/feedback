@@ -5,42 +5,45 @@
   </ion-nav-bar>
   <ion-content id="suggestions-square" class="fill">
 
-			<div id="suggestions-menu">
-				<div ng-click="filter()">
-					<i></i>
-				</div>
-				<div ng-click="order()">
-					<i></i>
-				</div>
-				<div ng-click="viewRow()">
-					<i></i>
-				</div>
+		<div id="suggestions-menu">
+			<div ng-click="filter()" ng-class="brandName == undefined ? '' : 'on-filter'" >
+				<i></i>
 			</div>
+			<div ng-click="order()">
+				<i></i>
+			</div>
+			<div ng-click="viewRow()">
+				<i></i>
+			</div>
+			<div ng-click="filterList(undefined)" ng-class="brandName == undefined ? 'disabled' : ''">
+				<i></i>
+			</div>
+		</div>
 
-	    <div class="suggestion" ng-repeat="suggestion in suggestionsSq" >
+	    <div class="suggestion" ng-repeat="suggestion in suggestions" >
 
 				<a href="#/app/suggestions/{{suggestion.id}}"></a>
 				
 	    	<div class="suggestion-company">
 	    		<div>
-	      		<img src="img/{{suggestion.thumbnail}}">
+	      		<img src="img/company/{{suggestion.marcaImagen}}-white.png">
 	    		</div>
 	    	</div>
 
 	    	<div class="suggestion-info">
 		    	<div>
-			    	<strong>Pretty Hate Machine</strong>
-			      <p>{{suggestion.title}}</p>
+			    	<strong>{{suggestion.titulo}}</strong>
+			      <p>{{suggestion.autor}}</p>
 		    	</div>
 	    	</div>
 
 	    	<div class="suggestion-stars">
 		    	<div>
-			    	<i class="star fill"></i>
-		    		<i class="star fill"></i>
-		    		<i class="star"></i>
-		    		<i class="star"></i>
-	    			<i class="star"></i>
+			    	<i ng-class="suggestion.calificacion >= 1 ? 'star fill' : 'star'"></i>
+		    		<i ng-class="suggestion.calificacion >= 2 ? 'star fill' : 'star'"></i>
+		    		<i ng-class="suggestion.calificacion >= 3 ? 'star fill' : 'star'"></i>
+		    		<i ng-class="suggestion.calificacion >= 4 ? 'star fill' : 'star'"></i>
+		    		<i ng-class="suggestion.calificacion >= 5 ? 'star fill' : 'star'"></i>
 		    	</div>
 	    	</div>
 

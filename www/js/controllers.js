@@ -55,12 +55,12 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
         }else if(result.error == 3){
           $ionicPopup.alert({
             title: 'Datos incorrectos',
-            template: 'Por favor ingrese nombre y correo'
+            template: 'Por favor ingresa nombre y correo correctamente'
           });
         }else{
           $ionicPopup.alert({
             title: 'Ocurrió un error',
-            template: 'Por favor intente de nuevo'
+            template: 'Por favor intenta de nuevo'
           });
         }
       },function(err){
@@ -73,7 +73,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     }else{
       $ionicPopup.alert({
         title: 'Datos incorrectos',
-        template: 'Por favor ingrese nombre y correo correctamente'
+        template: 'Por favor ingresa nombre y correo correctamente'
       });
     }
   }
@@ -123,7 +123,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
             }else{
               $ionicPopup.alert({
                 title: 'Ocurrió un error',
-                template: 'Por favor intente de nuevo'
+                template: 'Por favor intenta de nuevo'
               });
             }
           },function(err){
@@ -176,7 +176,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
         // usuario no existe
         $ionicPopup.alert({
           title: 'Usuario incorrecto',
-          template: 'Ingrese sus datos'
+          template: 'Ingresa tus datos'
         });
         $ionicHistory.nextViewOptions({
           disableBack: true
@@ -186,7 +186,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
       }else{
         $ionicPopup.alert({
           title: 'Ocurrió un error',
-          template: 'Por favor intente de nuevo'
+          template: 'Por favor intenta de nuevo'
         });
       }
     },function(err){
@@ -207,7 +207,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   }else{
     $ionicPopup.alert({
       title: 'Usuario incorrecto',
-      content: 'Ingrese sus datos'
+      content: 'Ingresa tus datos'
     });
     $state.go('app.login');
   }
@@ -304,7 +304,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
       }else{
         $ionicPopup.alert({
           title: 'Ocurrió un error',
-          template: 'Por favor intente de nuevo'
+          template: 'Por favor intenta de nuevo'
         });
         // Falta Redirigir al listado de sugerencias
       }
@@ -419,12 +419,12 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     if ($scope.data.objetive != "" && $scope.data.objetive != undefined) {
       ServiceGeneral.setStatusImg(false);
       ServiceSugerenciaData.setPaso2($scope.data.objetive);
-      $scope.message="Está seguro que desaea guardar sin subir una imagen"; 
+      $scope.message="Estás seguro que deseas guardar sin subir una imagen"; 
       $scope.openAlert();
     } else{
       $ionicPopup.alert({
         title: 'Datos incorrectos',
-        content: 'Verifique que el objetivo este correctos'
+        content: 'Verifica que el objetivo este correctos'
       });
     };
   };
@@ -438,7 +438,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     } else{
       $ionicPopup.alert({
         title: 'Datos incorrectos',
-        content: 'Verifique que el título y la descripción esten correctos'
+        content: 'Verifica que el título y la descripción esten correctos'
       });
     };
   }
@@ -455,7 +455,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     } else{
       $ionicPopup.alert({
         title: 'Datos incorrectos',
-        content: 'Verifique que el objetivo este correctos'
+        content: 'Verifica que el objetivo este correcto'
       });
     };
   }
@@ -577,7 +577,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
                 $ionicLoading.hide();
                 $ionicPopup.alert({
                   title: 'Ocurrio un error',
-                  content: 'Por favor intente de nuevo'
+                  content: 'Por favor intenta de nuevo'
                 });
               });
             } else{
@@ -597,14 +597,14 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
           }else{
             $ionicPopup.alert({
               title: 'Datos incorrectos',
-              template: 'Por favor ingrese los datos de nuevo'
+              template: 'Por favor ingresa los datos de nuevo'
             });
             $state.go('app.companies');
           }
         }else{
           $ionicPopup.alert({
             title: 'Usuario incorrecto',
-            template: 'Ingrese sus datos'
+            template: 'Ingresa tus datos'
           });
           $ionicHistory.nextViewOptions({
             disableBack: true
@@ -616,7 +616,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
         if(statusImg == true && $scope.image == null){
           $ionicPopup.alert({
             title: 'Imagen incorrecta',
-            template: 'Por favor seleccione una imagen'
+            template: 'Por favor selecciona una imagen'
           });
         }
       }
@@ -655,19 +655,19 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     }else if(result.error == 3){
       $ionicPopup.alert({
         title: 'Datos incorrectos',
-        template: 'Por favor ingrese de nuevo los datos'
+        template: 'Por favor ingresa de nuevo los datos'
       });
       $state.go('app.companies');
     }else if(result.error == 4){
       $ionicPopup.alert({
-        title: 'Imagen demaciado pesada',
-        template: 'Por favor suba otra imagen'
+        title: 'Imagen demasiado pesada',
+        template: 'Por favor sube otra imagen'
       });
       $state.go('app.companies');
     }else{
       $ionicPopup.alert({
         title: 'Ocurrió un error',
-        template: 'Por favor intente de nuevo'
+        template: 'Por favor intenta de nuevo'
       });
     }
   }
