@@ -1,0 +1,47 @@
+<ion-view>
+	<ion-nav-bar class="nav-blue">
+		<img id="logo-white" src="img/logo-white.png" alt="">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+  <ion-content id="suggestions-row" class="fill">
+
+		<div id="suggestions-menu">
+			<div ng-click="filter()">
+				<i></i>
+			</div>
+			<div ng-click="order()">
+				<i></i>
+			</div>
+			<div ng-click="viewSquare()">
+				<i></i>
+			</div>
+			<div ng-click="filterList(undefined)">
+				<i></i>
+			</div>
+		</div>
+
+	    <div class="suggestion" ng-repeat="suggestion in suggestions | filter:{'marcaImagen': brandName} | orderBy:paramName:reverse" >
+
+				<a href="#/app/suggestions/{{suggestion.id}}"></a>
+				
+	    	<div class="suggestion-info">
+		    	<strong>{{suggestion.titulo}}</strong>
+		      <p>{{suggestion.autor}}</p>
+	    	</div>
+
+	    	<div class="suggestion-stars">
+	    		<i ng-class="suggestion.calificacion >= 1 ? 'star fill' : 'star'"></i>
+	    		<i ng-class="suggestion.calificacion >= 2 ? 'star fill' : 'star'"></i>
+	    		<i ng-class="suggestion.calificacion >= 3 ? 'star fill' : 'star'"></i>
+	    		<i ng-class="suggestion.calificacion >= 4 ? 'star fill' : 'star'"></i>
+	    		<i ng-class="suggestion.calificacion >= 5 ? 'star fill' : 'star'"></i>
+	    	</div>
+
+	    	<div class="suggestion-company">
+	      		<img src="img/logo-{{suggestion.marcaImagen}}.jpg">
+	    	</div>
+
+	    </div>
+		<button id="new-suggestion" ng-click="createSuggerence()"></button>
+  </ion-content>
+</ion-view>

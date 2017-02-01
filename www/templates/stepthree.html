@@ -1,0 +1,39 @@
+<ion-view view-title="Paso 3">
+	<ion-nav-bar class="nav-blue">
+		<img id="logo-white" src="img/logo-white.png" alt="">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content id="stepthree" class="fill">
+
+		<figure id="stepthree-arrow" class="arrow down blue"></figure>
+		<p id="stepthree-copy">
+			Lorem ipsum dolor sit amet, <br>
+			consectetur adipisicing elit.
+		</p>
+
+		<span>Haga tap para subir la imagen.</span>
+		<div id="stepthree-area" ng-click="loadImage()">
+			<img ng-show="image" ng-src="{{pathForImage(image)}}" style="width: 100%; height: 100%;">
+		</div>
+
+		<!-- <div id="stepthree-options">
+			<button ng-click="finish()">
+				<figure class="arrow blue"></figure>
+				<span>TERMINAR SUGERENCIA</span>
+			</button>
+		</div> -->
+
+
+	</ion-content>
+
+	
+    
+	<ion-footer>
+		<div id="stepthree-options">
+			<button ng-click="finish()">
+				<figure class="arrow blue"></figure>
+				<span>TERMINAR SUGERENCIA</span>
+			</button>
+		</div>
+	</ion-footer>
+ </ion-view>

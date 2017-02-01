@@ -1,0 +1,8 @@
+{
+  "name": "sugerencias",
+  "app_id": "",
+  "watchPatterns": [
+    "www/js/*",
+    "!www/css/**/*"
+  ]
+}

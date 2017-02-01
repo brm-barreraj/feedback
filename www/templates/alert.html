@@ -1,0 +1,17 @@
+<ion-modal-view>
+	<ion-content id="alert" class="fill">
+		<button class="modal-close"  ng-click="closeAlert()"></button>
+		<div id="alert-icon"></div>
+		<p id="alert-copy">
+			{{message}}
+		</p>
+	</ion-content>
+	<ion-footer>
+		<div id="alert-options">
+			<button ng-click="finish()">
+				<figure class="arrow blue"></figure>
+				<span>CONTINUAR</span>
+			</button>
+		</div>
+	</ion-footer>
+</ion-modal-view>

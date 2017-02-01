@@ -1,0 +1,60 @@
+<ion-view>
+	<ion-nav-bar class="nav-blue">
+		<img id="logo-white" src="img/logo-white.png" alt="">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+  <ion-content id="detail" class="fill">
+
+		<figure id="detail-arrow" class="arrow down white"></figure>
+
+	  <div id="detail-info">
+
+	  	<div>
+	  		<h1>{{suggestion.titulo}}</h1>
+	  	</div>
+
+			<div>
+				<p>{{suggestion.autor}}</p>
+				<small>{{suggestion.fecha}}</small>
+			</div>
+
+			<div>
+					<div class="company-logo {{suggestion.marcaImagen}}">
+						<img src="img/company/{{suggestion.marcaImagen}}.png" alt="">
+					</div>
+
+		    	<div class="detail-stars">
+		    		<i ng-class="suggestion.calificacion >= 1 ? 'star fill' : 'star'" ng-click="setQualification(1)"></i>
+		    		<i ng-class="suggestion.calificacion >= 2 ? 'star fill' : 'star'" ng-click="setQualification(2)"></i>
+		    		<i ng-class="suggestion.calificacion >= 3 ? 'star fill' : 'star'" ng-click="setQualification(3)"></i>
+		    		<i ng-class="suggestion.calificacion >= 4 ? 'star fill' : 'star'" ng-click="setQualification(4)"></i>
+		    		<i ng-class="suggestion.calificacion >= 5 ? 'star fill' : 'star'" ng-click="setQualification(5)"></i>
+		    	</div>
+			</div> 
+
+		</div> 
+
+
+		<div id="detail-goals" class="detail-text">
+			<h3>Objetivos</h3>
+			<p>
+				{{suggestion.objetivo}}
+			</p>
+		</div>
+		
+		<div id="detail-image" ng-show="suggestion.imagen">
+			<img src="http://fbapp.brm.com.co/fbappFundacion/appFeedback/img/sugerencias/{{suggestion.imagen}}" alt="">
+		</div>
+
+		<div id="detail-description" class="detail-text">
+			<h3>Descripción</h3>
+			<p>
+				{{suggestion.descripcion}}
+			</p>
+		</div>
+
+  </div>
+
+  </ion-content>
+</ion-view>
+

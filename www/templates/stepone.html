@@ -1,0 +1,33 @@
+<ion-view view-title="Paso 1">
+	<ion-nav-bar class="nav-blue">
+		<img id="logo-white" src="img/logo-white.png" alt="">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+	<ion-content id="stepone" class="fill">
+
+		<figure id="stepone-arrow" class="arrow down blue"></figure>
+		<p id="stepone-copy" class="hide-on-keyboard-open">
+			Lorem ipsum dolor sit amet, <br>
+			consectetur adipisicing elit.
+		</p>
+
+		<form id="stepone-form">
+			<div class="field">
+				<figure class="arrow white"></figure>
+				<input type="text" ng-model="data.title" placeholder="Titulo"/>
+			</div>
+			<div class="field">
+				<figure class="arrow white down"></figure>
+				<textarea ng-model="data.description" placeholder="Descripción"></textarea>
+			</div>
+		</form>
+	</ion-content>
+	<ion-footer>
+		<div id="stepone-options">
+			<button type="submit" form="stepone-form" ng-click="steptwo()">
+				<figure class="arrow blue"></figure>
+				<span>SIGUIENTE</span>
+			</button>
+			</div>
+	</ion-footer>
+ </ion-view>

@@ -1,0 +1,37 @@
+<ion-view>
+	<ion-nav-bar class="nav-white">
+		<img id="logo-blue" src="img/logo-blue.png" alt="">
+		<ion-nav-back-button></ion-nav-back-button>
+	</ion-nav-bar>
+  
+	<ion-content id="register" class="fill">
+
+		<figure id="register-arrow" class="arrow down white"></figure>
+
+		<p id="register-copy" class="hide-on-keyboard-open">
+			Lorem ipsum dolor sit amet, <br>
+			consectetur adipisicing elit.
+		</p>
+
+		<form ng-submit="doLogin(loginData)" id="register-form">
+		    <div class="field">
+						<figure class="arrow white"></figure>
+		        <input type="text" ng-model="loginData.username" placeholder="Nombre"/>
+		    </div>
+		    <div class="field">
+						<figure class="arrow white down"></figure>
+				<input type="text" ng-model="loginData.email" placeholder="Correo"/>
+		    </div>
+
+		</form>
+
+	</ion-content>
+	<ion-footer>
+		<div id="register-options">
+			<button type="submit" form="register-form">
+				<figure class="arrow blue"></figure>
+				<span>ENVIAR</span>
+			</button>
+		</div>
+	</ion-footer>
+ </ion-view>
