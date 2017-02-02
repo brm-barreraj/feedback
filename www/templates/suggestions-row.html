@@ -9,7 +9,7 @@
   <ion-content id="suggestions-row" class="fill">
 
 		<div id="suggestions-menu">
-			<div ng-click="filter()">
+			<div ng-click="filter()" ng-class="brandName == undefined ? '' : 'on-filter'" >
 				<i></i>
 			</div>
 			<div ng-click="order()">
@@ -18,7 +18,7 @@
 			<div ng-click="viewSquare()">
 				<i></i>
 			</div>
-			<div ng-click="filterList(undefined)">
+			<div ng-click="filterList(undefined)" ng-class="brandName == undefined ? 'disabled' : ''">
 				<i></i>
 			</div>
 		</div>
@@ -41,7 +41,7 @@
 	    	</div>
 
 	    	<div class="suggestion-company">
-	      		<img src="img/logo-{{suggestion.marcaImagen}}.jpg">
+	      		<img src="img/company/logo-{{suggestion.marcaImagen}}.jpg">
 	    	</div>
 
 	    </div>
