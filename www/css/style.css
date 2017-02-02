@@ -113,9 +113,9 @@
 	width: 80%;
 	left: 10%;
 	text-align: center;
-	font-family: regular;
+	font-family: light;
 	font-size: 26px;
-	line-height: 22px;
+	line-height: 29px;
 	color: #364775;
 }
 
@@ -270,21 +270,21 @@
 }
 
 #register-options button span{
-	font-family: light;
+	font-family: medium;
 	color: #fff;
 	font-size: 25px;
 }
 
 #register-copy{
-	/* position: relative; */
+	position: relative;
 	width: 80%;
-	/* display: block; */
+	display: block;
 	margin: 0 auto;
 	text-align: left;
-	font-family: medium;
-	font-size: 29px;
-	line-height: 28px;
-	padding: 20% 0 0 0;
+	font-family: light;
+	font-size: 24px;
+	line-height: 27px;
+	padding: 19% 0 2% 0;
 	color: #364775;
 }
 
@@ -450,7 +450,7 @@ input:-moz-placeholder {
 
 #suggestions-row .suggestion{
 	width: 100%;
-	height: 65px;
+	height: 60px;
 	overflow: hidden;
 	position: relative;
 	display: block;
@@ -483,7 +483,7 @@ input:-moz-placeholder {
 }
 
 #suggestions-row .suggestion .suggestion-info{
-	width: 56%;
+	width: 52%;
 	float: left;
 	height: 100%;
 	padding: 4% 0 0 3%;
@@ -500,7 +500,7 @@ input:-moz-placeholder {
 	font-size: 15px;
 }
 #suggestions-row .suggestion .suggestion-stars{
-	width: 26%;
+	width: 30%;
 	float: left;
 	height: 100%;
 }
@@ -526,8 +526,8 @@ input:-moz-placeholder {
 	float: left;
 }
 #suggestions-row .suggestion .suggestion-company img{
-	width: 65px;
-	height: 65px;
+	width: 60px;
+	height: 60px;
 	float: right;
 }
 #suggestions-square{
@@ -847,7 +847,7 @@ input:-moz-placeholder {
 
 
 .order-option{
-	height: 33%;
+	height: 33.3%;
 	display: block;
 	position: relative;
 	width: 100%;
@@ -871,15 +871,15 @@ input:-moz-placeholder {
 
 
 #stepone-copy{
-	/* position: relative; */
+	position: relative;
 	width: 80%;
-	/* display: block; */
+	display: block;
 	margin: 0 auto;
 	text-align: left;
 	font-family: medium;
-	font-size: 29px;
-	line-height: 28px;
-	padding: 20% 0 0 0;
+	font-size: 26px;
+	line-height: 25px;
+	padding: 24% 0 0 0;
 	color: #364775;
 }
 
@@ -917,7 +917,7 @@ input:-moz-placeholder {
 /*STEP TWO*/
 
 #steptwo{
-	background-image: url(../img/login.jpg);
+	background-image: url(../img/steptwo.jpg);
 	background-size: cover;
 }
 
@@ -938,17 +938,28 @@ input:-moz-placeholder {
 }
 
 #steptwo-copy{
-	/* position: relative; */
+	position: relative;
 	width: 80%;
-	/* display: block; */
-	margin: 0 auto;
+	display: block;
+	margin: 0 auto 0 auto;
 	text-align: left;
 	font-family: medium;
-	font-size: 29px;
+	font-size: 27px;
 	line-height: 28px;
-	padding: 20% 0 0 0;
+	padding: 28% 0 6% 0;
 	color: #364775;
 }
+#steptwo-info{
+	position: relative;
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+	text-align: left;
+	font-family: regular;
+	font-size: 17px;
+	color: #364775;
+}
+
 
 #steptwo-options{
 	position: absolute;
@@ -1179,8 +1190,15 @@ ion-header-bar.nav-white .buttons span{
 	position: relative;
 	height: 23px;
 	display: block;
-	margin: 11px 0 0 80px;
+	margin: 11px 0 0 16%;
 	z-index: 10;
+}
+
+#logo-side{
+	position: relative;
+	height: 40px;
+	display: block;
+	margin: 5% auto 0 auto;
 }
 
 #info-user{width: 100%;position: relative;height: 145px;padding: 0 6%;margin-bottom: 7%;}
@@ -1209,9 +1227,9 @@ ion-header-bar.nav-white .buttons span{
 
 form#stepone-form {margin-top: 20%;}
 
-form#steptwo-form {margin-top: 20%;}
+form#steptwo-form {margin-top: 10%;}
 
-form#register-form {margin-top: 20%;}
+form#register-form {margin-top: 15%;}
 
 .button,
 .button:hover{
@@ -1221,7 +1239,19 @@ form#register-form {margin-top: 20%;}
 	background: #364775;
 }
 
+.popup-buttons {
+	padding: 0;
+	min-height: 45px;
+}
 
 
-
-
+.popup-container .popup {
+	overflow: hidden;
+}
+.popup-buttons .button{
+	border-radius: 0;
+	min-height: 35px;
+	line-height: 15px;
+	font-family: bold;
+	padding: 0;
+}

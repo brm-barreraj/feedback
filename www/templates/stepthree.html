@@ -11,23 +11,12 @@
 			sube la imagen o toma una foto.
 		</p>
 
-		<span>Haz tap para subir la imagen.</span>
 		<div id="stepthree-area" ng-click="loadImage()">
+			<span>Haz tap para subir la imagen.</span>
 			<img ng-show="image" ng-src="{{pathForImage(image)}}" style="width: 100%; height: 100%;">
 		</div>
-
-		<!-- <div id="stepthree-options">
-			<button ng-click="finish()">
-				<figure class="arrow blue"></figure>
-				<span>TERMINAR SUGERENCIA</span>
-			</button>
-		</div> -->
-
-
 	</ion-content>
 
-	
-    
 	<ion-footer>
 		<div id="stepthree-options">
 			<button ng-click="finish()">
