@@ -276,9 +276,7 @@
 }
 
 #register-copy{
-	position: relative;
 	width: 80%;
-	display: block;
 	margin: 0 auto;
 	text-align: left;
 	font-family: light;
@@ -669,14 +667,16 @@ input:-moz-placeholder {
 	display: block;
 	overflow: hidden;
 	padding: 2% 2% 0 2%;
-	margin: 5% 0 8% 0;
+	margin: 5% 0 3% 0;
+	height: 130px;
 }
 #detail-info>div:nth-child(1){
 	width: 100%;
 	float: left;
 	position: relative;
 	display: block;
-	margin-bottom: 4%;
+	overflow: hidden;
+	height: 30%;
 }
 #detail-info>div:nth-child(1) h1{
 	margin: 0;
@@ -684,24 +684,29 @@ input:-moz-placeholder {
 	letter-spacing: -2px;
 	line-height: 35px;
 	color: #364775;
+	margin-top: 3px;
 }
 #detail-info>div:nth-child(2){
 	width: 50%;
 	position: relative;
-	display: block;
+	display: table;
 	float: left;
+	height: 70%;
 }
+#detail-info>div:nth-child(2) div{display: table-cell;vertical-align: middle;}
 
 #detail-info>div:nth-child(2) p{margin: 0;font-family: light-oblique;font-size: 18px;color: #a7aaa9;}
 
-#detail-info>div:nth-child(2) small{font-family: light-oblique;color: #a7aaa9;margin-top: 6px;display: block;}
+#detail-info>div:nth-child(2) small{font-family: light-oblique;color: #a7aaa9;margin-top: 1px;display: block;}
 
 #detail-info>div:nth-child(3){
 	width: 50%;
 	position: relative;
-	display: block;
+	display: table;
 	float: left;
+	height: 70%;
 }
+#detail-info>div:nth-child(3)>div{display: table-cell;vertical-align: middle;}
 .detail-stars{
 	width: calc( calc(25px*5) + calc(5px*5) );
 	height: 25px;
@@ -754,9 +759,15 @@ input:-moz-placeholder {
 #detail-description{}
 
 .company-logo{
-	width: 100%;
+	width: 80%;
 	padding: 3% 0;
+	display: block;
+	margin: 0 auto;
 }
+.modal .company-logo{
+	width: 100%;
+}
+
 .company-logo img{width: 80%;position: relative;margin: 0 auto 0 auto;display: block;} 
 .articulacion{
 	background-color:#c01722;
@@ -871,9 +882,7 @@ input:-moz-placeholder {
 
 
 #stepone-copy{
-	position: relative;
 	width: 80%;
-	display: block;
 	margin: 0 auto;
 	text-align: left;
 	font-family: medium;
@@ -938,10 +947,9 @@ input:-moz-placeholder {
 }
 
 #steptwo-copy{
-	position: relative;
 	width: 80%;
-	display: block;
 	margin: 0 auto 0 auto;
+	display: block;
 	text-align: left;
 	font-family: medium;
 	font-size: 27px;
@@ -950,7 +958,6 @@ input:-moz-placeholder {
 	color: #364775;
 }
 #steptwo-info{
-	position: relative;
 	width: 80%;
 	display: block;
 	margin: 0 auto;
@@ -1057,9 +1064,7 @@ ion-header-bar.nav-white .buttons span{
 }
 
 #stepthree-copy{
-	position: relative;
 	width: 80%;
-	display: block;
 	margin: 0 auto;
 	text-align: left;
 	font-family: medium;
@@ -1243,7 +1248,18 @@ form#register-form {margin-top: 15%;}
 	padding: 0;
 	min-height: 45px;
 }
+.popup-body{
+	color: #364775;
+	font-family: regular;
+}
 
+.popup-title {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  color: #364775;
+  font-family: medium;
+}
 
 .popup-container .popup {
 	overflow: hidden;
@@ -1254,4 +1270,5 @@ form#register-form {margin-top: 15%;}
 	line-height: 15px;
 	font-family: bold;
 	padding: 0;
+	background-color: #364775;
 }

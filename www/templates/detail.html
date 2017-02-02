@@ -14,11 +14,14 @@
 	  	</div>
 
 			<div>
-				<p>{{suggestion.autor}}</p>
-				<small>{{suggestion.fecha}}</small>
+				<div>
+					<p>{{suggestion.autor}}</p>
+					<small>{{suggestion.fecha}}</small>
+				</div>
 			</div>
 
 			<div>
+				<div>
 					<div class="company-logo {{suggestion.marcaImagen}}">
 						<img src="img/company/{{suggestion.marcaImagen}}.png" alt="">
 					</div>
@@ -30,6 +33,7 @@
 		    		<i ng-class="suggestion.calificacion >= 4 ? 'star fill' : 'star'" ng-click="setQualification(4)"></i>
 		    		<i ng-class="suggestion.calificacion >= 5 ? 'star fill' : 'star'" ng-click="setQualification(5)"></i>
 		    	</div>
+		    </div>
 			</div> 
 
 		</div> 
