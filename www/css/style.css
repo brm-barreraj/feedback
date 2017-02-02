@@ -1272,3 +1272,6 @@ form#register-form {margin-top: 15%;}
 	padding: 0;
 	background-color: #364775;
 }
+.keyboard-open .hide-on-keyboard-open {
+  display: none !important; 
+}
