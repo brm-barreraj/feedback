@@ -16,16 +16,16 @@
     <ion-content>
  		 	<img id="logo-side" src="img/logo-white.png" alt="">
       <div id="info-user">
-        <img id="user" ng-show="imagen == ''" src="img/default-user.png" alt="">
-        <img id="user" ng-show="imagen != ''" src="{{usuImg}}" alt="">
+        <img id="user" ng-show="usuImg == ''" src="img/default-user.png" alt="">
+        <img id="user" ng-show="usuImg != ''" src="{{usuImg}}" alt="">
         <p>{{usuName}}</p>
         <small>{{usuEmail}}</small>
       </div>
       <ion-list>
-        <ion-item menu-close href="#/app/suggestions">
+        <ion-item menu-close ng-click="list()">
           Sugerencias
         </ion-item>
-        <ion-item menu-close href="#/app/new-suggestion">
+        <ion-item menu-close ng-click="add()">
           Nueva sugerencia
         </ion-item>
         <ion-item menu-close ng-click="unlogin()">

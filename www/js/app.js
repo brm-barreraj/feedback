@@ -24,6 +24,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
     if(typeof analytics !== "undefined") {
       analytics.startTrackerWithId("UA-37830346-10");
+    }else{
+      console.log("analytics no define");
     }
   });
 })

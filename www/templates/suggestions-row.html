@@ -25,7 +25,7 @@
 
 	    <div class="suggestion" ng-repeat="suggestion in suggestions | filter:{'marcaImagen': brandName} | orderBy:paramName:reverse" >
 
-				<a href="#/app/suggestions/{{suggestion.id}}"></a>
+				<a ng-click="goDetail(suggestion.id)"></a>
 				
 	    	<div class="suggestion-info">
 		    	<strong>{{suggestion.titulo}}</strong>

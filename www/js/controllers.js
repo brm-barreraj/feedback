@@ -7,8 +7,20 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     $scope.nombre = userData.nombre;
     $scope.email = userData.email;
   }
+
+  $scope.list = function(){
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("menu", "tap", "listaSugerencias", "ok"); }
+    $state.go("app.suggestions-row");
+  }
+
+  $scope.add = function(){
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("menu", "tap", "nuevaSugerencia", "ok"); }
+    $state.go("app.companies");
+  }
+
   // Cerrar sesión
   $scope.unlogin = function(){
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("menu", "tap", "logout", "ok"); }
     $ionicHistory.nextViewOptions({
       disableBack: true
     });
@@ -18,7 +30,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 })
 
 .controller('register', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, ServiceGeneral) {
-  
+  // Marcación google analytics
+  setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("loginInvitado"); analytics.setUserId("julianbarrera1");} },2000);
   var userData = ServiceGeneral.getUserData();
   if (userData) {
     $ionicHistory.nextViewOptions({
@@ -29,6 +42,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 
   // Registro de invitado
   $scope.doLogin = function(usuario){
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("loginInvitado", "tap", "enviar", "ok"); }
     if (usuario && usuario.username && usuario.username != "" && usuario.email && usuario.email != "" && ServiceGeneral.validEmail(usuario.email)) {
       $ionicLoading.show({
         template: 'Cargando...'
@@ -41,17 +55,12 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
       ServiceGeneral.post(parameters)
       .then(function(result){
         $ionicLoading.hide();
-        if(result.error == 1){
+        if(result.error == 1 || result.error == 2){
           ServiceGeneral.setUserData({idUsuario: result.data, nombre: usuario.username, email: usuario.email, imagen: ''});
           $ionicHistory.nextViewOptions({
             disableBack: true
           });
           $state.go('app.suggestions-row');
-        }else if(result.error == 2){
-          $ionicPopup.alert({
-            title: 'Warning',
-            template: 'El usuario ya existe'
-          });
         }else if(result.error == 3){
           $ionicPopup.alert({
             title: 'Datos incorrectos',
@@ -80,6 +89,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 })
 
 .controller('login', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, ServiceGeneral) {
+  // Marcación google analytics
+  setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("tipoUsuario"); } },2000);
   $scope.menu="white"; 
   var userData = ServiceGeneral.getUserData();
   if (userData) {
@@ -89,8 +100,14 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     $state.go('app.suggestions-row');
   }
 
+  $scope.doLoginInvitado = function() {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("tipoUsuario", "tap", "tipo", "Invidado"); }
+    $state.go("app.register");
+  }
+
   // Login por medio de gmail
   $scope.doLogin = function() {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("tipoUsuario", "tap", "tipo", "BRM"); }
     $cordovaOauth.google("1041899427311-k4fabaje85gsu3hv26fkssre93igqjia.apps.googleusercontent.com", ["email", "profile"]).then(function(result) {
       ServiceGeneral.gmail(result.access_token)
       .then(function(user) {
@@ -149,6 +166,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 })
 
 .controller('suggestions', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicModal, ServiceGeneral, ServiceSugerenciaData) {
+  // Marcación google analytics
+  setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("listaSugerencias"); } },2000);
   $scope.menu="white";
   $scope.paramName="";
   var userData = ServiceGeneral.getUserData();
@@ -218,9 +237,17 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     $scope.modalCompanies = modalCompanies;
   });
 
+  // Seleccionar sugerencia
+  $scope.goDetail = function(id){
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "seleccionarSugerencia", "ok"); }
+    $state.go('app.suggestions',{suggestionid:id});
+  }
+
   // Ordenar titulo || fecha || calificacion
   $scope.orderList = function(campo){
     $scope.paramName=campo;
+    // Marcación google analytics
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "tipoOrden", campo); }
     $scope.reverse=!$scope.reverse;
     $scope.closeOrder();
   }
@@ -228,6 +255,12 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   // Filtar marca
   $scope.filterList = function(campo){
     $scope.brandName=campo;
+    // Marcación google analytics
+    if (campo == undefined || campo == 'undefined') {
+      if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "desfiltrar", "ok"); }
+    }else{
+      if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "filtroMarca", campo); }
+    }
     $scope.closeFilter();
   }
 
@@ -236,6 +269,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   };
 
   $scope.createSuggerence = function() {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "nuevaSugerencia", "ok"); }
     $scope.modalCompanies.show();
   };
 
@@ -250,6 +284,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   };
 
   $scope.filter = function() {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "filtro", "ok"); }
     $scope.modalFilter.show();
   };
 
@@ -265,18 +300,22 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   };
 
   $scope.order = function() {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "orden", "ok"); }
     $scope.modalOrder.show();
   };
 
   $scope.viewSquare = function() {
-      $state.go('app.suggestions-square');
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "tipoLista", "filas"); }
+    $state.go('app.suggestions-square');
   };
 
   $scope.viewRow = function() {
-      $state.go('app.suggestions-row');
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("listaSugerencias", "tap", "tipoLista", "cuadrados"); }
+    $state.go('app.suggestions-row');
   };
 
   $scope.stepone = function(idMarca) {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("crearSugerencia", "tap", "seleccionarMarca", "marca"); }
     $scope.closeCompanies();
     ServiceSugerenciaData.setMarca(idMarca);
     $state.go('app.stepone');
@@ -284,6 +323,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 })
 
 .controller('suggestionDetail', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, ServiceGeneral) {
+  // Marcación google analytics
+  setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("detalle"); } },2000);
   $scope.suggestion = {};
   $scope.idSugerencia = 0;
   if ($stateParams.suggestionid != null && $stateParams.suggestionid != "") {
@@ -326,6 +367,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 
   // Calificar sugerencia
   $scope.setQualification = function(cantidad) {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("detalle", "tap", "calificacion", "calificacion"); }
     var userData = ServiceGeneral.getUserData();
     if (userData) {
       if ($scope.idSugerencia > 0) {
@@ -383,7 +425,8 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
 })
 
 .controller('createSuggerence', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, $ionicModal, $timeout, $cordovaCamera, $cordovaFile, $cordovaFileTransfer, $cordovaDevice, $cordovaActionSheet, ServiceGeneral, ServiceSugerenciaData) {
-
+  // Marcación google analytics
+  setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("crearSugerencia"); } },2000);
   $scope.message=""; 
   $scope.image = null;
   $scope.statusFinish = false;
@@ -417,6 +460,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   // Click finalizar sin subir imagen
   $scope.finishWithoutImg = function() {
     if ($scope.data.objetive != "" && $scope.data.objetive != undefined) {
+      if(typeof analytics !== "undefined"){ analytics.trackEvent("crearSugerencia", "tap", "terminarSugerencia", "ok"); }
       ServiceGeneral.setStatusImg(false);
       ServiceSugerenciaData.setPaso2($scope.data.objetive);
       $scope.message="Estás seguro que deseas guardar sin subir una imagen"; 
@@ -429,10 +473,21 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
     };
   };
 
+  $scope.closeCompanies = function() {
+    $state.go('app.suggestions-row');
+  };
+
+  // Click seleccion de la marca al paso 1
+  $scope.stepone = function(idMarca) {
+    if(typeof analytics !== "undefined"){ analytics.trackEvent("crearSugerencia", "tap", "seleccionarMarca", "marca"); }
+    ServiceSugerenciaData.setMarca(idMarca);
+    $state.go('app.stepone');
+  };
 
   // Click del Paso 1 al paso 2
   $scope.steptwo = function() {
     if ($scope.data.title != "" && $scope.data.title != undefined && $scope.data.description != "" && $scope.data.description != undefined) {
+      if(typeof analytics !== "undefined"){ analytics.trackEvent("crearSugerencia", "tap", "paso1", "ok"); }
       ServiceSugerenciaData.setPaso1({titulo: $scope.data.title, descripcion: $scope.data.description});
       $state.go('app.steptwo');
     } else{
@@ -446,6 +501,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   // Click del Paso 2 al paso 3
   $scope.stepthree = function() {
    if ($scope.data.objetive != "" && $scope.data.objetive != undefined) {
+      if(typeof analytics !== "undefined"){ analytics.trackEvent("crearSugerencia", "tap", "subirImagen", "ok"); }
       ServiceSugerenciaData.setPaso2($scope.data.objetive);
       $ionicHistory.nextViewOptions({
         disableBack: true

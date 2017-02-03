@@ -17,7 +17,7 @@
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
   <preference name="SplashScreen" value="screen"/>
-  <preference name="Orientation" value="portrait" />
+  <preference name="Orientation" value="portrait"/>
   <feature name="StatusBar">
     <param name="ios-package" onload="true" value="CDVStatusBar"/>
   </feature>
@@ -81,5 +81,6 @@
   <allow-navigation href="http://172.16.229.25:8100"/>
   <allow-navigation href="http://172.16.223.105:8100"/>
   <allow-navigation href="http://172.16.229.31:8100"/>
+  <allow-navigation href="http://172.16.223.105:1024"/>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
 </widget>
