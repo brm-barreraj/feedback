@@ -5,7 +5,7 @@
     <ion-nav-buttons side="left"> 
    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
  </ion-nav-buttons>
-  <ion-content id="suggestions-square" class="fill">
+  <ion-content id="suggestions-square" class="fill" >
 
 		<div id="suggestions-menu">
 			<div ng-click="filter()" ng-class="brandName == undefined ? '' : 'on-filter'" >
@@ -51,5 +51,7 @@
 
 	    </div>
   </ion-content>
-	<button id="new-suggestion" ng-click="createSuggerence()"></button>
+  <ion-footer-bar>
+  	<button id="new-suggestion" ng-click="createSuggerence()"></button>
+  </ion-footer-bar>	
 </ion-view>

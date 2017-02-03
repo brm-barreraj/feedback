@@ -120,14 +120,12 @@
 }
 
 #login-options{
-	position: absolute;
-	bottom: 0;
 	width: 100%;
 }
 #login-options button{
 	width: 50%;
 	float: left;
-	height: 62px;
+	height: 100%;
 	border: 0;
 	position: relative;
 }
@@ -280,8 +278,8 @@
 	margin: 0 auto;
 	text-align: left;
 	font-family: light;
-	font-size: 24px;
-	line-height: 27px;
+	font-size: 22px;
+	line-height: 23px;
 	padding: 19% 0 2% 0;
 	color: #364775;
 }
@@ -1274,4 +1272,9 @@ form#register-form {margin-top: 15%;}
 }
 .keyboard-open .hide-on-keyboard-open {
   display: none !important; 
+}
+
+.bar-footer{
+	height: 60px;
+	padding: 0;
 }

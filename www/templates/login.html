@@ -3,7 +3,7 @@
 		<img id="logo-blue" src="img/logo-blue.png" alt="">
 		<ion-nav-back-button></ion-nav-back-button>
 	</ion-nav-bar>
-  <ion-content id="login" class="fill">
+  <ion-content id="login" class="fill" scoll="false">
 		
 		<figure id="login-arrow" class="arrow down white"></figure>
 
@@ -12,6 +12,8 @@
 			Envía tu sugerencia a BRM Feedback.
 		</p>
 
+  </ion-content>
+  <ion-footer-bar>
 		<div id="login-options">
 			<button>
 				<a ng-click="doLogin()"></a>
@@ -24,5 +26,5 @@
 				<span>INVITADO</span>
 			</button>
 		</div>
-  </ion-content>
+  </ion-footer-bar>
 </ion-view>
