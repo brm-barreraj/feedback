@@ -29,9 +29,10 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   }
 })
 
-.controller('register', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, ServiceGeneral) {
+.controller('register', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, $ionicSideMenuDelegate, ServiceGeneral) {
   // Marcación google analytics
   setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("loginInvitado"); analytics.setUserId("julianbarrera1");} },2000);
+  $ionicSideMenuDelegate.canDragContent(false);
   var userData = ServiceGeneral.getUserData();
   if (userData) {
     $ionicHistory.nextViewOptions({
@@ -88,10 +89,11 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   }
 })
 
-.controller('login', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, ServiceGeneral) {
+.controller('login', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, $ionicSideMenuDelegate, ServiceGeneral) {
   // Marcación google analytics
   setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("tipoUsuario"); } },2000);
   $scope.menu="white"; 
+  $ionicSideMenuDelegate.canDragContent(false);
   var userData = ServiceGeneral.getUserData();
   if (userData) {
     $ionicHistory.nextViewOptions({
@@ -165,9 +167,10 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   };
 })
 
-.controller('suggestions', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicModal, ServiceGeneral, ServiceSugerenciaData) {
+.controller('suggestions', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicModal, $ionicSideMenuDelegate, ServiceGeneral, ServiceSugerenciaData) {
   // Marcación google analytics
   setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("listaSugerencias"); } },2000);
+  $ionicSideMenuDelegate.canDragContent(true);
   $scope.menu="white";
   $scope.paramName="";
   var userData = ServiceGeneral.getUserData();
@@ -322,9 +325,10 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   };
 })
 
-.controller('suggestionDetail', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, ServiceGeneral) {
+.controller('suggestionDetail', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicSideMenuDelegate, ServiceGeneral) {
   // Marcación google analytics
   setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("detalle"); } },2000);
+  $ionicSideMenuDelegate.canDragContent(true);
   $scope.suggestion = {};
   $scope.idSugerencia = 0;
   if ($stateParams.suggestionid != null && $stateParams.suggestionid != "") {
@@ -424,9 +428,10 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   }
 })
 
-.controller('createSuggerence', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, $ionicModal, $timeout, $cordovaCamera, $cordovaFile, $cordovaFileTransfer, $cordovaDevice, $cordovaActionSheet, ServiceGeneral, ServiceSugerenciaData) {
+.controller('createSuggerence', function($scope, $stateParams, $ionicLoading, $ionicPopup, $state, $cordovaOauth, $ionicHistory, $ionicModal, $timeout, $cordovaCamera, $cordovaFile, $cordovaFileTransfer, $cordovaDevice, $cordovaActionSheet, $ionicSideMenuDelegate, ServiceGeneral, ServiceSugerenciaData) {
   // Marcación google analytics
   setTimeout(function(){ if(typeof analytics !== "undefined") { analytics.trackView("crearSugerencia"); } },2000);
+  $ionicSideMenuDelegate.canDragContent(true);
   $scope.message=""; 
   $scope.image = null;
   $scope.statusFinish = false;
