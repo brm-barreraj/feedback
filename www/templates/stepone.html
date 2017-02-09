@@ -5,9 +5,9 @@
 	</ion-nav-bar>
 	<ion-content id="stepone" class="fill" scoll="false">
 
-		<figure id="stepone-arrow" class="arrow down blue"></figure>
+		<figure id="stepone-arrow" class="hide-on-keyboard-open arrow down blue"></figure>
 		<p id="stepone-copy" class="hide-on-keyboard-open">
-			Comienza por un título, <br>
+			Comienza por un título,
 			luego describe muy bien cuál es tu sugerencia.
 		</p>
 
@@ -22,12 +22,10 @@
 			</div>
 		</form>
 	</ion-content>
-	<ion-footer>
-		<div id="stepone-options">
-			<button type="submit" form="stepone-form" ng-click="steptwo()">
-				<figure class="arrow blue"></figure>
-				<span>SIGUIENTE</span>
-			</button>
-			</div>
-	</ion-footer>
+	<div id="stepone-options">
+		<button type="submit" form="stepone-form" ng-click="steptwo()">
+			<figure class="arrow blue"></figure>
+			<span>SIGUIENTE</span>
+		</button>
+	</div>
  </ion-view>

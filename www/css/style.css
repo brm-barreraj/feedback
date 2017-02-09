@@ -121,6 +121,9 @@
 
 #login-options{
 	width: 100%;
+	position: absolute;
+	bottom: 0;
+	height: 50px;
 }
 #login-options button{
 	width: 50%;
@@ -170,6 +173,8 @@
 	font-family: light;
 	color: #fff;
 	font-size: 25px;
+	margin-top: 6px;
+	display: block;
 }
 
 
@@ -255,7 +260,7 @@
 #register-options button{
 	width: 100%;
 	float: left;
-	height: 62px;
+	height: 50px;
 	border: 0;
 	position: relative;
 	background-color:#364775;
@@ -336,10 +341,11 @@ input:-moz-placeholder {
 	position: relative;
 	display: block;
 	overflow: hidden;
+	margin-top: 10px;
 }
 #suggestions-menu div{
-	width: 25%;
-	height: 50px;
+	width: 33.3%;
+	height: 100%;
 	float: left;
 }
 #suggestions-menu div.on-filter i{opacity: 0.3;}
@@ -347,13 +353,18 @@ input:-moz-placeholder {
 #suggestions-menu div i{
 	position: relative;
 	background-repeat: no-repeat;
-	width: 35px;
-	height: 35px;
+	width: 100%;
+	height: 50%;
 	background-size: contain;
-	margin: 16px auto 0 auto;
+	margin: 0 auto 0 auto;
 	background-position: center center;
 	display: block;
 }
+#suggestions-menu div span{font-family: regular;font-size: 14px;line-height: 12px;display: block;text-align: center;width: 100%;height: 50%;overflow: hidden;padding-top: 8px;color: #a7aaa9;}
+#suggestions-menu.white div span{
+	color:white;
+}
+
 #suggestions-menu div i.on-filer{
 }
 
@@ -361,19 +372,19 @@ input:-moz-placeholder {
 	background-image: url(../img/filter.png);
 }
 
-#suggestions-row #suggestions-menu div:nth-child(2) i{
+#suggestions-row #suggestions-menu div:nth-child(3) i{
 	background-image: url(../img/order.png);
 }
 
-#suggestions-row #suggestions-menu div:nth-child(3) i{
+#suggestions-row #suggestions-menu div:nth-child(4) i{
 	background-image: url(../img/view-square.png);
 }
 
-#suggestions-row #suggestions-menu div:nth-child(4) i{
+#suggestions-row #suggestions-menu div:nth-child(2) i{
 	background-image: url(../img/filter.png);
 }
 
-#suggestions-menu div:nth-child(4) i::before{
+#suggestions-menu div:nth-child(2) i::before{
 	content: "";
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
@@ -390,7 +401,7 @@ input:-moz-placeholder {
 	background: #364775;
 }
 
-#suggestions-menu div:nth-child(4) i::before{
+#suggestions-menu div:nth-child(2) i::before{
 	content: "";
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
@@ -399,14 +410,14 @@ input:-moz-placeholder {
 	transform: rotate(45deg);
 	position: absolute;
 	width: 2px;
-	right: 15px;
-	height: 40px;
+	right: 10%;
+	height: 20px;
 	border: 0;
 	top: 0px;
 	z-index: 3;
-	background: rgba(192, 25, 35, 0.54);
+	background: rgba(220, 35, 0, 0.65);
 }
-#suggestions-menu div:nth-child(4) i::after{
+#suggestions-menu div:nth-child(2) i::after{
 	content: "";
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
@@ -415,30 +426,31 @@ input:-moz-placeholder {
 	transform: rotate(-45deg);
 	position: absolute;
 	width: 2px;
-	right: 15px;
-	height: 40px;
+	right: 10%;
+	height: 20px;
 	border: 0;
 	top: 0;
 	z-index: 3;
-	background: rgba(192, 25, 35, 0.47);
+	background: rgba(220, 35, 0, 0.65);
 }
 
 
 #suggestions-square #suggestions-menu div:nth-child(1) i{
 	background-image: url(../img/filter-white.png);
 }
-
 #suggestions-square #suggestions-menu div:nth-child(2) i{
-	background-image: url(../img/order-white.png);
+	background-image: url(../img/filter-white.png);
 }
 
 #suggestions-square #suggestions-menu div:nth-child(3) i{
-	background-image: url(../img/view-row.png);
+	background-image: url(../img/order-white.png);
 }
 
 #suggestions-square #suggestions-menu div:nth-child(4) i{
-	background-image: url(../img/filter-white.png);
+	background-image: url(../img/view-row.png);
 }
+
+
 
 #suggestions-square div i{
 	color:#fff;
@@ -884,9 +896,9 @@ input:-moz-placeholder {
 	margin: 0 auto;
 	text-align: left;
 	font-family: medium;
-	font-size: 26px;
-	line-height: 25px;
-	padding: 24% 0 0 0;
+	font-size: 24px;
+	line-height: 23px;
+	padding: 22% 0 0 0;
 	color: #364775;
 }
 
@@ -899,7 +911,7 @@ input:-moz-placeholder {
 #stepone-options button{
 	width: 100%;
 	float: left;
-	height: 62px;
+	height: 50px;
 	border: 0;
 	position: relative;
 	background-color:#364775;
@@ -912,9 +924,11 @@ input:-moz-placeholder {
 }
 
 #stepone-options button span{
-	font-family: light;
+	font-family: medium;
 	color: #fff;
 	font-size: 25px;
+	display: block;
+	margin-top: 5px;
 }
 
 .stepone-info{
@@ -952,7 +966,7 @@ input:-moz-placeholder {
 	font-family: medium;
 	font-size: 27px;
 	line-height: 28px;
-	padding: 28% 0 6% 0;
+	padding: 22% 0 6% 0;
 	color: #364775;
 }
 #steptwo-info{
@@ -1030,9 +1044,9 @@ ion-header-bar.nav-blue .title{
 	margin: 0 auto;
 	width: 30%;
 	display: block;
-	top: 2px;
+	top: 0px;
 	left: initial !important;
-	right: 0!important;
+	right: 5%!important;
 }
 ion-header-bar.nav-blue .button.button-clear{
 	color: #fff;
@@ -1042,6 +1056,7 @@ ion-header-bar.nav-blue .buttons span{
 	font-family: light;
 	font-size: 12px;
 	text-transform: lowercase;
+	display: none;
 }
 
 ion-header-bar.nav-white .button.button-clear{
@@ -1066,9 +1081,9 @@ ion-header-bar.nav-white .buttons span{
 	margin: 0 auto;
 	text-align: left;
 	font-family: medium;
-	font-size: 29px;
-	line-height: 28px;
-	padding: 20% 0;
+	font-size: 22px;
+	line-height: 24px;
+	padding: 20% 0 5% 0;
 	color: #364775;
 }
 
@@ -1081,7 +1096,7 @@ ion-header-bar.nav-white .buttons span{
 #stepthree-options button{
 	width: 100%;
 	float: left;
-	height: 62px;
+	height: 50px;
 	border: 0;
 	position: relative;
 	background-color:#364775;
@@ -1096,7 +1111,9 @@ ion-header-bar.nav-white .buttons span{
 #stepthree-options button span{
 	font-family: light;
 	color: #fff;
-	font-size: 25px;
+	font-size: 20px;
+	display: block;
+	margin-top: 5px;
 }
 
 .stepthree-info{
@@ -1228,7 +1245,7 @@ ion-header-bar.nav-white .buttons span{
 	font-size: 14px;
 }
 
-form#stepone-form {margin-top: 20%;}
+form#stepone-form {margin-top: 15%;}
 
 form#steptwo-form {margin-top: 10%;}
 
@@ -1270,11 +1287,16 @@ form#register-form {margin-top: 15%;}
 	padding: 0;
 	background-color: #364775;
 }
-.keyboard-open .hide-on-keyboard-open {
-  display: none !important; 
+
+    .button.button-positive:hover,
+    .button.button-positive.active,
+    .button.button-positive.activated{
+ 	background-color: #364775; 
 }
 
 .bar-footer{
 	height: 60px;
 	padding: 0;
+	border: 0;
+	background-image: none;
 }

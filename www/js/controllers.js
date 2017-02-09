@@ -173,6 +173,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
   $ionicSideMenuDelegate.canDragContent(true);
   $scope.menu="white";
   $scope.paramName="";
+  $scope.brandName='';
   var userData = ServiceGeneral.getUserData();
   $scope.suggestions = [];
 

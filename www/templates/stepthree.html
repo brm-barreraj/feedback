@@ -7,8 +7,7 @@
 
 		<figure id="stepthree-arrow" class="arrow down blue"></figure>
 		<p id="stepthree-copy">
-			Es muy sencillo, <br>
-			sube la imagen o toma una foto.
+			Es muy sencillo,sube la imagen o toma una foto.
 		</p>
 
 		<div id="stepthree-area" ng-click="loadImage()">
@@ -16,13 +15,10 @@
 			<img ng-show="image" ng-src="{{pathForImage(image)}}" style="width: 100%; height: 100%;">
 		</div>
 	</ion-content>
-
-	<ion-footer>
-		<div id="stepthree-options">
-			<button ng-click="finish()">
-				<figure class="arrow blue"></figure>
-				<span>TERMINAR SUGERENCIA</span>
-			</button>
-		</div>
-	</ion-footer>
+	<div id="stepthree-options">
+		<button ng-click="finish()">
+			<figure class="arrow blue"></figure>
+			<span>TERMINAR SUGERENCIA</span>
+		</button>
+	</div>
  </ion-view>

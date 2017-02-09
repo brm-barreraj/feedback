@@ -7,21 +7,24 @@
  </ion-nav-buttons>
   <ion-content id="suggestions-square" class="fill" >
 
-		<div id="suggestions-menu">
-			<div ng-click="filter()" ng-class="brandName == undefined ? '' : 'on-filter'" >
+		<div id="suggestions-menu" class="white">
+			<div ng-click="filter()" ng-show="brandName == ''" >
 				<i></i>
+				<span>Seleccionar marca</span>
+			</div>
+			<div ng-click="filterList(undefined)" ng-show="brandName != ''">
+				<i></i>
+				<span>Seleccionar <br> otra marca</span>
 			</div>
 			<div ng-click="order()">
 				<i></i>
+				<span>Ordenar lista</span>
 			</div>
-			<div ng-click="viewRow()">
+			<div ng-click="viewSquare()">
 				<i></i>
-			</div>
-			<div ng-click="filterList(undefined)" ng-class="brandName == undefined ? 'disabled' : ''">
-				<i></i>
+				<span>Cambiar vista</span>
 			</div>
 		</div>
-
 	    <div class="suggestion" ng-repeat="suggestion in suggestions | filter:{'marcaImagen': brandName} | orderBy:paramName:reverse" >
 
 				<a href="#/app/suggestions/{{suggestion.id}}"></a>
@@ -51,7 +54,5 @@
 
 	    </div>
   </ion-content>
-  <ion-footer-bar>
-  	<button id="new-suggestion" ng-click="createSuggerence()"></button>
-  </ion-footer-bar>	
+  <button id="new-suggestion" ng-click="createSuggerence()"></button>
 </ion-view>
