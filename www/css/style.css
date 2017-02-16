@@ -961,7 +961,7 @@ input:-moz-placeholder {
 #steptwo-copy{
 	width: 80%;
 	margin: 0 auto 0 auto;
-	display: block;
+	/* display: block; */
 	text-align: left;
 	font-family: medium;
 	font-size: 27px;

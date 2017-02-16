@@ -190,6 +190,7 @@ angular.module('starter.controllers', ['ionic','ngCordova','ngCordovaOauth'])
       $ionicLoading.hide();
       if(result.error == 1){
         // traemos el listado de sugerencias
+        $scope.$broadcast('scroll.refreshComplete');
         $scope.suggestions = result.data;
       }else if(result.error == 2){
         // No hay sugerencias 

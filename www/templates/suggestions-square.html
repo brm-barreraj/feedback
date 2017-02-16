@@ -8,11 +8,11 @@
   <ion-content id="suggestions-square" class="fill" >
 
 		<div id="suggestions-menu" class="white">
-			<div ng-click="filter()" ng-show="brandName == ''" >
+			<div ng-click="filter()" ng-show="brandName == '' || brandName == undefined" >
 				<i></i>
 				<span>Seleccionar marca</span>
 			</div>
-			<div ng-click="filterList(undefined)" ng-show="brandName != ''">
+			<div ng-click="filterList(undefined)" ng-show="brandName != '' && brandName != undefined">
 				<i></i>
 				<span>Seleccionar <br> otra marca</span>
 			</div>
